@@ -28,17 +28,19 @@ fn part_one(lines: Vec<&str>) {
 
 fn part_two(lines: Vec<&str>) {
     let mut sum: i32 = 0;
-    let nums = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    let nums = [
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    ];
     let nums_map = HashMap::from([
-                                 ("one", 1),
-                                 ("two", 2),
-                                 ("three", 3),
-                                 ("four", 4),
-                                 ("five", 5),
-                                 ("six", 6),
-                                 ("seven", 7),
-                                 ("eight", 8),
-                                 ("nine", 9)
+        ("one", 1),
+        ("two", 2),
+        ("three", 3),
+        ("four", 4),
+        ("five", 5),
+        ("six", 6),
+        ("seven", 7),
+        ("eight", 8),
+        ("nine", 9),
     ]);
     for line in lines {
         let l = line.to_lowercase();
@@ -47,14 +49,19 @@ fn part_two(lines: Vec<&str>) {
         let mut first_val = 0;
         let mut last_val = 0;
         for num in nums {
-            let mut v: Vec<usize> = l.match_indices(num).collect::<Vec<(usize, &str)>>().iter().map(|(i, _)| *i).collect();
+            let mut v: Vec<usize> = l
+                .match_indices(num)
+                .collect::<Vec<(usize, &str)>>()
+                .iter()
+                .map(|(i, _)| *i)
+                .collect();
             if v.len() == 0 {
                 continue;
             }
             v.sort();
             let i = v.first().unwrap();
             let j = v.last().unwrap();
-            
+
             if *i <= first_idx {
                 first_val = nums_map[num];
                 first_idx = *i;
