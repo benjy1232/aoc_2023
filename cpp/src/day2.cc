@@ -1,16 +1,9 @@
 #include <fstream>
 #include <iostream>
 #include <set>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
-
-enum Token {
-  Game,
-  Red,
-  Green,
-  Blue
-};
 
 // read file and create vector separated on lines
 std::vector<std::string> readFile(std::string fileName) {
